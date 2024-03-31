@@ -7,6 +7,7 @@
   min-height: 600px;
   width: 60%;
   margin: auto;
+  margin-top: 100px;
   padding-top: 35px;
   padding-bottom: 35px;
 }
@@ -106,11 +107,12 @@
   right: 30px;
   top: 25%;
   /* left: -10%; */
-  border-radius: 50px;
+  border-radius: 50%;
   background-color: white;
+  transition: background-color 1s;
 }
 #enter:hover {
-  background-color: green;
+  background-color: rgb(12, 174, 12);
 }
 @media screen and (min-width: 1000px) {
   #enter {
