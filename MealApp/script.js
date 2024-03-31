@@ -137,39 +137,41 @@ document.addEventListener("DOMContentLoaded", () => {
   function displaySearchResults(meals) {
     console.log("entered displaysearchresults");
     searchResults.innerHTML = "";
-    meals.forEach((meal) => {
-      const mealCard = document.createElement("div");
+    if (favouriteMeals) {
+      meals.forEach((meal) => {
+        const mealCard = document.createElement("div");
 
-      const mealItem = createMealItemElement(meal);
+        const mealItem = createMealItemElement(meal);
 
-      loadFavouritesFromStorage();
-      // console.log(
-      //   "the favourites in the display search results is",
-      //   favouriteMeals.includes(meal.idMeal)
-      // );
-      const addToFavouriteBtn = document.createElement("button");
-      addToFavouriteBtn.classList.add("favbtn");
-      const heart = document.createElement("i");
+        loadFavouritesFromStorage();
+        // console.log(
+        //   "the favourites in the display search results is",
+        //   favouriteMeals.includes(meal.idMeal)
+        // );
+        const addToFavouriteBtn = document.createElement("button");
+        addToFavouriteBtn.classList.add("favbtn");
+        const heart = document.createElement("i");
 
-      heart.classList.add("fa-heart", "fa-2xl");
+        heart.classList.add("fa-heart", "fa-2xl");
 
-      if (favouriteMeals && favouriteMeals.includes(meal.idMeal)) {
-        heart.classList.add("selected");
-        heart.classList.add("fa-solid");
-      } else {
-        heart.classList.add("fa-regular");
-      }
+        if (favouriteMeals && favouriteMeals.includes(meal.idMeal)) {
+          heart.classList.add("selected");
+          heart.classList.add("fa-solid");
+        } else {
+          heart.classList.add("fa-regular");
+        }
 
-      addToFavouriteBtn.addEventListener("click", () => {
-        heart.classList.add("fa-solid");
-        heart.classList.add("selected");
-        addToFavourites(meal.idMeal);
+        addToFavouriteBtn.addEventListener("click", () => {
+          heart.classList.add("fa-solid");
+          heart.classList.add("selected");
+          addToFavourites(meal.idMeal);
+        });
+        addToFavouriteBtn.appendChild(heart);
+        mealCard.appendChild(mealItem);
+        mealCard.appendChild(addToFavouriteBtn);
+        searchResults.appendChild(mealCard);
       });
-      addToFavouriteBtn.appendChild(heart);
-      mealCard.appendChild(mealItem);
-      mealCard.appendChild(addToFavouriteBtn);
-      searchResults.appendChild(mealCard);
-    });
+    }
   }
 
   // Fetch meal by ID
