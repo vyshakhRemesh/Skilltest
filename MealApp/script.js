@@ -211,7 +211,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Add meal to favorites
   function addToFavourites(mealId) {
-    if (!favouriteMeals.includes(mealId)) {
+    if (favouriteMeals && !favouriteMeals.includes(mealId)) {
       favouriteMeals.push(mealId);
       saveFavouritesToStorage();
       // loadFavouritesFromStorage();
