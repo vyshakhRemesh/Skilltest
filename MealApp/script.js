@@ -143,10 +143,10 @@ document.addEventListener("DOMContentLoaded", () => {
       const mealItem = createMealItemElement(meal);
 
       loadFavouritesFromStorage();
-      console.log(
-        "the favourites in the display search results is",
-        favouriteMeals.includes(meal.idMeal)
-      );
+      // console.log(
+      //   "the favourites in the display search results is",
+      //   favouriteMeals.includes(meal.idMeal)
+      // );
       const addToFavouriteBtn = document.createElement("button");
       addToFavouriteBtn.classList.add("favbtn");
       const heart = document.createElement("i");
