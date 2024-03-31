@@ -137,41 +137,40 @@ document.addEventListener("DOMContentLoaded", () => {
   function displaySearchResults(meals) {
     console.log("entered displaysearchresults");
     searchResults.innerHTML = "";
-    if (favouriteMeals) {
-      meals.forEach((meal) => {
-        const mealCard = document.createElement("div");
 
-        const mealItem = createMealItemElement(meal);
+    meals.forEach((meal) => {
+      const mealCard = document.createElement("div");
 
-        loadFavouritesFromStorage();
-        // console.log(
-        //   "the favourites in the display search results is",
-        //   favouriteMeals.includes(meal.idMeal)
-        // );
-        const addToFavouriteBtn = document.createElement("button");
-        addToFavouriteBtn.classList.add("favbtn");
-        const heart = document.createElement("i");
+      const mealItem = createMealItemElement(meal);
 
-        heart.classList.add("fa-heart", "fa-2xl");
+      loadFavouritesFromStorage();
+      // console.log(
+      //   "the favourites in the display search results is",
+      //   favouriteMeals.includes(meal.idMeal)
+      // );
+      const addToFavouriteBtn = document.createElement("button");
+      addToFavouriteBtn.classList.add("favbtn");
+      const heart = document.createElement("i");
 
-        if (favouriteMeals && favouriteMeals.includes(meal.idMeal)) {
-          heart.classList.add("selected");
-          heart.classList.add("fa-solid");
-        } else {
-          heart.classList.add("fa-regular");
-        }
+      heart.classList.add("fa-heart", "fa-2xl");
 
-        addToFavouriteBtn.addEventListener("click", () => {
-          heart.classList.add("fa-solid");
-          heart.classList.add("selected");
-          addToFavourites(meal.idMeal);
-        });
-        addToFavouriteBtn.appendChild(heart);
-        mealCard.appendChild(mealItem);
-        mealCard.appendChild(addToFavouriteBtn);
-        searchResults.appendChild(mealCard);
+      if (favouriteMeals && favouriteMeals.includes(meal.idMeal)) {
+        heart.classList.add("selected");
+        heart.classList.add("fa-solid");
+      } else {
+        heart.classList.add("fa-regular");
+      }
+
+      addToFavouriteBtn.addEventListener("click", () => {
+        heart.classList.add("fa-solid");
+        heart.classList.add("selected");
+        addToFavourites(meal.idMeal);
       });
-    }
+      addToFavouriteBtn.appendChild(heart);
+      mealCard.appendChild(mealItem);
+      mealCard.appendChild(addToFavouriteBtn);
+      searchResults.appendChild(mealCard);
+    });
   }
 
   // Fetch meal by ID
