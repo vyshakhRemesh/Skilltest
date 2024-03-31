@@ -126,6 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const response = await fetch(searchUrl);
       const data = await response.json();
       console.log("data is ", data);
+      console.log("the meal is ", data.meals);
       displaySearchResults(data.meals);
     } catch (error) {
       console.error("Error fetching data:", error);
