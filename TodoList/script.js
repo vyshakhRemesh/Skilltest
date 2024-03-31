@@ -1,7 +1,7 @@
 let list = [];
 let sort;
 const inputElement = document.getElementById("input");
-// input.value = "vyshakh";
+
 const listElement = document.getElementById("list");
 const enterButton = document.getElementById("enter");
 const detailsElement = document.getElementById("details");
@@ -14,15 +14,12 @@ const uncompleteTab = document.getElementById("uncompleteTab");
 const completeTab = document.getElementById("completeTab");
 
 allTab.addEventListener("click", () => {
-  // tabSelect("all");
   renderList("all");
 });
 uncompleteTab.addEventListener("click", () => {
-  // tabSelect("uncomplete");
   renderList("uncomplete");
 });
 completeTab.addEventListener("click", () => {
-  // tabSelect("complete");
   renderList("complete");
 });
 
@@ -64,9 +61,7 @@ enterButton.style.display = "none";
 inputElement.addEventListener("keypress", () => {
   enterButton.style.display = "inline-block";
 });
-// inputElement.addEventListener("blur", () => {
-//   enterButton.style.display = "none";
-// });
+
 enterButton.addEventListener("click", () => {
   enterButton.style.display = "none";
   console.log(inputElement.value);
@@ -134,16 +129,7 @@ function renderList(sort = "all") {
       console.log("change");
       console.log(event);
       item.checked = event.target.checked;
-      // if (event.target.checked) {
-      //   console.log("checked");
-      //   listItem.style.color = "green";
-      //   listItem.style.textDecoration = "line-through";
-      //   len--;
-      // } else {
-      //   console.log("unchecked");
-      //   listItem.style.textDecoration = "none";
-      //   len++;
-      // }
+
       renderList();
     });
 
@@ -158,9 +144,7 @@ function renderList(sort = "all") {
     delContainer.appendChild(delButton);
     listItemContainer.appendChild(delContainer);
     listElement.appendChild(listItemContainer);
-    // listElement.appendChild(delContainer);
   });
 
   remainingTask.textContent = `${len} tasks left`;
 }
-// console.log(list);
