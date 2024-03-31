@@ -152,13 +152,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const heart = document.createElement("i");
 
       heart.classList.add("fa-heart", "fa-2xl");
-      if (favouriteMeals !== null) {
-        if (favouriteMeals?.includes(meal.idMeal)) {
-          heart.classList.add("selected");
-          heart.classList.add("fa-solid");
-        } else {
-          heart.classList.add("fa-regular");
-        }
+
+      if (favouriteMeals && favouriteMeals.includes(meal.idMeal)) {
+        heart.classList.add("selected");
+        heart.classList.add("fa-solid");
+      } else {
+        heart.classList.add("fa-regular");
       }
 
       addToFavouriteBtn.addEventListener("click", () => {
