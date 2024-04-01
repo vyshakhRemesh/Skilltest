@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", () => {
       favouriteMeals = JSON.parse(storedFavorites);
       displayFavouriteMeals();
     } else {
-      // favouriteMeals = JSON.parse(storedFavorites);
       favouriteMeals = [];
     }
   }
@@ -63,7 +62,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const mealImageCard = document.createElement("div");
       mealImageCard.classList.add("mealImageCard");
       mealImageCard.appendChild(mealImage);
-      // Append elements to the container
+
       mealDetailsSection.appendChild(mealImageCard);
       mealDetailsSection.appendChild(mealDetailsCard);
     }
@@ -145,10 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const mealItem = createMealItemElement(meal);
 
       loadFavouritesFromStorage();
-      // console.log(
-      //   "the favourites in the display search results is",
-      //   favouriteMeals.includes(meal.idMeal)
-      // );
+
       const addToFavouriteBtn = document.createElement("button");
       addToFavouriteBtn.classList.add("favbtn");
       const heart = document.createElement("i");
@@ -215,7 +211,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (favouriteMeals && !favouriteMeals.includes(mealId)) {
       favouriteMeals.push(mealId);
       saveFavouritesToStorage();
-      // loadFavouritesFromStorage();
     }
   }
 
