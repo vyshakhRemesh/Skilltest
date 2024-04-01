@@ -27,7 +27,8 @@ document.addEventListener("DOMContentLoaded", () => {
       favouriteMeals = JSON.parse(storedFavorites);
       displayFavouriteMeals();
     } else {
-      favouriteMeals = JSON.parse(storedFavorites);
+      // favouriteMeals = JSON.parse(storedFavorites);
+      favouriteMeals = [];
     }
   }
 
